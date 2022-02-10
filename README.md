@@ -1,31 +1,21 @@
-# Greed
-Greed is a game in which the player seeks to gather as many falling gems as possible. The game continues as long as the player wants more!
+# Tresure Hunt
+Greed is a game in which the player seeks to gather as many coins as possible within a time limit.
 
 # Rules
 Greed is played according to the following rules.
 
-Gems (*) and rocks (o) randomly appear and fall from the top of the screen.
-The player (#) can move left or right along the bottom of the screen.
-If the player touches a gem they earn a point.
-If the player touches a rock they lose a point.
-Gems and rocks are removed when the player touches them.
-The game continues until the player closes the window.
+Yellow coins (o) randomly appear and fall from the top of the screen.
+The player can click the coins.
+If the player clicks a coin they earn a point until the time runs out
+coins are removed when the player touches them.
+the player can restart are try to get a better score
 
 # Requirements
 Your program must also meet the following requirements.
 
 The program must have a README file.
-The program must have at least eight classes.
 Each module, class and method must have a corresponding comment.
 The game must remain generally true to the order of play described earlier.
-
-# Have Some fun!
-Make the game your own by enhancing it any way you like. Here are a few ideas.
-
-Enhanced gems and rocks (multiple kinds, different points).
-Enhanced player movement (up and down in a limited range)
-Enhanced game play and game over messages.
-Enhanced gem, rock and player representation (colors or better symbols)
 
 ## Getting Started
 ---
@@ -45,7 +35,7 @@ project folder. Select the main module inside the hunter folder and click the "r
 The project files and folders are organized as follows:
 ```
 root                    (project root folder)
-+-- rfk                 (source code for game)
++-- treasure hunt                (source code for game)
   +-- data              (data files for game)
   +-- game              (specific game classes)
   +-- __main__.py       (entry point for program)
@@ -60,9 +50,7 @@ root                    (project root folder)
 ## Authors
 ---
 * Team 7
-    * Kendra Anderson kor04003@byui.edu
     * Daisy Nadauld kun19002@byui.edu
     * Jessica Hansen bar19007@byui.edu
-    * Daniel Carril car15114@byui.edu
     * Anna Berrett dia21008@byui.edu
     * Sterling Tucker sktucker21@byui.edu
