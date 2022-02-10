@@ -1,8 +1,8 @@
 # Tresure Hunt
-Greed is a game in which the player seeks to gather as many coins as possible within a time limit.
+Treasure Hunt is a game in which the player seeks to gather as many coins as possible within a time limit.
 
 # Rules
-Greed is played according to the following rules.
+Treasure Hunt is played according to the following rules.
 
 Yellow coins (o) randomly appear and fall from the top of the screen.
 The player can click the coins.
