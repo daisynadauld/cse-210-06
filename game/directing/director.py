@@ -3,6 +3,7 @@ It loops through the input, updates, and output phases until
 the game ends."""
 
 from game.shared.point import Point
+from game.services.keyboard_service import KeyboardService
 import random
 
 class Director:
@@ -12,7 +13,7 @@ class Director:
 
     Attributes:
         _keyboard_service (KeyboardService): For getting directional input.
-        _video_service (VideoService): For providing video output.
+        _video_service (VideoService): For providing video output
     """
 
     def __init__(self, keyboard_service, video_service):
@@ -24,7 +25,6 @@ class Director:
         """
         self._keyboard_service = keyboard_service
         self._video_service = video_service
-        self._total_score = 0
         
     def start_game(self, cast):
         """Starts the game using the given cast. Runs the main game loop.
@@ -39,16 +39,13 @@ class Director:
             self._do_outputs(cast)
         self._video_service.close_window()
 
-    def _get_inputs(self, cast):
+    def _get_inputs(self, keyboard_services, score):
         """Gets directional input from the keyboard and applies it to the robot.
         
         Args:
             cast (Cast): The cast of actors.
         """
-        robot = cast.get_first_shape("robots")
-        velocity = self._keyboard_service.get_direction()
-
-        robot.set_velocity(velocity)        
+        self._keyboard_services = keyboard_services.get_mouse_input(self, score)
 
     def _do_updates(self, cast):
         """Updates the robot's position and resolves any collisions with artifacts.
@@ -57,23 +54,13 @@ class Director:
             cast (Cast): The cast of shapes.
         """
         banner = cast.get_first_shape("banners")
-        robot = cast.get_first_shape("robots")
-        minerals = cast.get_shapes("minerals")
-
+        coins = cast.get_shapes("coins")
         banner.set_text("Score: {}".format(self._total_score))
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
-        robot.move_next(max_x, max_y)
         
-        for mineral in minerals:
-            
-            mineral.move_next(max_x, max_y)
-            
-            if robot.get_position().equals(mineral.get_position()):
-                self._total_score = mineral.calc_score(self._total_score)
-                banner.set_text("Score: {}".format(self._total_score))
-                mineral._position = Point(random.randint(1, max_x), 0)
-                
+        
+
 
     def _do_outputs(self, cast):
         """Draws the shapes on the screen.

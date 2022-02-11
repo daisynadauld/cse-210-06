@@ -4,7 +4,7 @@ you catch a gem or a rock."""
 
 from game.casting.shape import Shape
 
-class Mineral(Shape):
+class Coin(Shape):
     """
     An item that changes your score if you catch it. 
     
