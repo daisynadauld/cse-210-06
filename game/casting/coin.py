@@ -4,7 +4,7 @@ you catch a gem or a rock."""
 
 from game.casting.shape import Shape
 
-class Mineral(Shape):
+class Coin(Shape):
     """
     An item that changes your score if you catch it. 
     
@@ -17,18 +17,20 @@ class Mineral(Shape):
     def __init__(self):
         """Constructs a new Mineral."""
         super().__init__()
-        self._score = 1
+        self._coin = "$"
         
-    def calc_score(self, total_score):
-        """Calculates the new total score.
+    def get_coin(self):
+        """Gets the artifact's message.
         
         Returns:
-            int: The total score.
+            string: The message.
         """
-        _total_score = total_score
-
-        if self._text == '*':
-            _total_score += self._score
-        elif self._text == '0':
-            _total_score -= self._score
-        return _total_score
+        return self._coin
+    
+    def set_coin(self, coin):
+        """Updates the message to the given one.
+        
+        Args:
+            message (string): The given message.
+        """
+        self._coin = coin
