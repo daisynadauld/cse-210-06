@@ -24,17 +24,14 @@ class KeyboardService:
             cell_size (int): The size of a cell in the display grid.
         """
         self._cell_size = cell_size
-        self._total_score = 0
+        
 
-    def get_mouse_input(self, score):
+    def get_mouse_input(self):
         """Gets the selected direction based on the currently pressed keys.
 
         Returns:
             Point: The selected direction.
         """
 
-        while raylib.IsMouseButtonPressed(raylib.MOUSE_BUTTON_LEFT):
-            if raylib.MOUSE_BUTTON_LEFT.equals(coin.get_position()):
-                coin.remove_shape("coins", coin.get_position())
-                self.total_score = score.add_points()
-                return self.total_score 
+        direction = raylib.IsMouseButtonPressed(raylib.MOUSE_BUTTON_LEFT)
+        return direction

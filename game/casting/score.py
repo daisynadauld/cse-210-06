@@ -14,7 +14,7 @@ class Score:
            Arg:
            points(int): points you get went taking a coin.
         """
-        self._points = ""
+        self._score = 0
     
     def get_points(self):
         """Gets the poitns as a string.
@@ -22,7 +22,7 @@ class Score:
            Returns: 
               the textualized points.
         """
-        return self._points
+        return self._score
     
     def add_points(self):
         """Adds 10 points for each coin taken.
@@ -30,13 +30,13 @@ class Score:
            Returns:
               New textualized points.
         """
-        self._points += 10
-        return self._points
+        self._score = self._score + 10
+        return self._score
     
-    def set_points(self, points):
+    def set_points(self, score):
         """Uppdates the poitns to the new points.
            
            Returns: 
               points(int): points you get went taking a coin.
         """
-        self._points = points
+        self._score = score

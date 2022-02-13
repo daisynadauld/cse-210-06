@@ -5,7 +5,7 @@ and rocks for the game to manipulate."""
 
 import os
 import random
-import raylib
+
 
 from game.casting.shape import Shape
 from game.casting.coin import Coin
@@ -48,14 +48,14 @@ def main():
     cast.add_shape("banners", banner)
     
     # create the minerals
+    character = ""
     x = random.randint(1, COLS - 1)
     y = random.randint(1, ROWS - 1)
     position = Point(x, y)
     position = position.scale(CELL_SIZE)   
     velocity = Point(0, random.randint(3, 5))
-    color = Color(255,233,0).to_tuple()
-    character = raylib.DrawCircle(x, y, FONT_SIZE, color)
-
+    color = YELLOW
+    
     coins = Coin()
     coins.set_text(character)
     coins.set_font_size(FONT_SIZE)
@@ -66,12 +66,14 @@ def main():
     cast.add_shape("coins", coins) 
     # creats score
     score = Score()
+
+   
     
     # start the game
-    keyboard_service = KeyboardService(CELL_SIZE)
+    keyboard_services = KeyboardService(CELL_SIZE)
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
-    director = Director(keyboard_service, video_service)
-    director.start_game(cast)
+    director = Director(keyboard_services, video_service)
+    director.start_game(cast, keyboard_services, score)
 
 
 if __name__ == "__main__":
