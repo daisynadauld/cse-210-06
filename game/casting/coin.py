@@ -18,7 +18,7 @@ class Coin(Shape):
         """Constructs a new Mineral."""
         super().__init__()
         self._coin = "$"
-        
+
     def get_coin(self):
         """Gets the artifact's message.
         
