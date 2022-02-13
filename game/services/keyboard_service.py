@@ -32,6 +32,6 @@ class KeyboardService:
         Returns:
             Point: The selected direction.
         """
-
-        direction = raylib.IsMouseButtonPressed(raylib.MOUSE_BUTTON_LEFT)
+        
+        direction = raylib.GetMousePosition()
         return direction

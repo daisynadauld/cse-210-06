@@ -28,7 +28,7 @@ FONT_SIZE = 15
 ROBOT_FONT_SIZE = 20
 COLS = 60
 ROWS = 40
-CAPTION = "Greed"
+CAPTION = "Tresure Hunt"
 YELLOW = Color(255,233,0)
 DEFAULT_MINERAL = 40
 
@@ -48,7 +48,7 @@ def main():
     cast.add_shape("banners", banner)
     
     # create the minerals
-    character = ""
+    text = "$"
     x = random.randint(1, COLS - 1)
     y = random.randint(1, ROWS - 1)
     position = Point(x, y)
@@ -57,7 +57,7 @@ def main():
     color = YELLOW
     
     coins = Coin()
-    coins.set_text(character)
+    coins.set_text(text)
     coins.set_font_size(FONT_SIZE)
     coins.set_color(color)
     coins.set_position(position)
