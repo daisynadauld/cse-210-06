@@ -30,7 +30,7 @@ COLS = 60
 ROWS = 40
 CAPTION = "Tresure Hunt"
 YELLOW = Color(255,233,0)
-DEFAULT_MINERAL = 40
+DEFAULT_COINS = 40
 
 def main():
     """Creates the characters of the game and starts
@@ -48,22 +48,25 @@ def main():
     cast.add_shape("banners", banner)
     
     # create the minerals
-    text = "$"
-    x = random.randint(1, COLS - 1)
-    y = random.randint(1, ROWS - 1)
-    position = Point(x, y)
-    position = position.scale(CELL_SIZE)   
-    velocity = Point(0, random.randint(3, 5))
-    color = YELLOW
+    for n in range(DEFAULT_COINS):
+        text = "$"
+        num = n
+        x = random.randint(1, COLS - 1)
+        y = random.randint(1, ROWS - 1)
+        position = Point(x, y)
+        position = position.scale(CELL_SIZE)   
+        velocity = Point(0, random.randint(3, 5))
+        color = YELLOW
     
-    coins = Coin()
-    coins.set_text(text)
-    coins.set_font_size(FONT_SIZE)
-    coins.set_color(color)
-    coins.set_position(position)
-    coins.set_velocity(velocity)
+        coin = Coin()
+        coin.set_text(text)
+        coin.set_font_size(FONT_SIZE)
+        coin.set_color(color)
+        coin.set_position(position)
+        coin.set_velocity(velocity)
+        coin.set_coin(num)
+        cast.add_shape("coins", coin) 
 
-    cast.add_shape("coins", coins) 
     # creats score
     score = Score()
 

@@ -1,6 +1,5 @@
-"""This module takes care of the score of the game
-by adding or subtracting points depending on whether
-you catch a gem or a rock."""
+"""This module get´s the information of the proretities 
+of Coin that are defined with the methods in the Shape class"""
 
 from game.casting.shape import Shape
 
@@ -8,19 +7,18 @@ class Coin(Shape):
     """
     An item that changes your score if you catch it. 
     
-    The responsibility of Mineral is to give a point when a gem is caught
-    and take away a point if a rock is caught.
+    The responsibility of Coin is to get the coin properities
 
     Attributes:
-        _score (int): The amount you gain or lose when you catch a gem or rock.
+        _coin (str): the treusre.
     """
     def __init__(self):
-        """Constructs a new Mineral."""
+        """Constructs a new Coin."""
         super().__init__()
-        self._coin = "$"
+        self._coin = ""
 
     def get_coin(self):
-        """Gets the artifact's message.
+        """Gets the Coin information.
         
         Returns:
             string: The message.
@@ -28,9 +26,9 @@ class Coin(Shape):
         return self._coin
     
     def set_coin(self, coin):
-        """Updates the message to the given one.
+        """Updates the Coin to the given one.
         
         Args:
-            message (string): The given message.
+            Coin (string): a tresure.
         """
         self._coin = coin
