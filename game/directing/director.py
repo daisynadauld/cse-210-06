@@ -71,7 +71,6 @@ class Director():
             coin.move_next(max_x, max_y)
             if direction.__eq__(coin.get_position()):
                 if raylib.IsMouseButtonPressed(raylib.MOUSE_BUTTON_LEFT):
-                    coin.get_coin()
                     cast.remove_shape("coins", coin)
                     self._score = score.add_points()
                     banner.set_text(f"Score: {self._score}")

@@ -50,7 +50,7 @@ def main():
     # create the minerals
     for n in range(DEFAULT_COINS):
         text = "$"
-        num = n
+
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
@@ -64,7 +64,6 @@ def main():
         coin.set_color(color)
         coin.set_position(position)
         coin.set_velocity(velocity)
-        coin.set_coin(num)
         cast.add_shape("coins", coin) 
 
     # creats score
