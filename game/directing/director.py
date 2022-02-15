@@ -5,6 +5,7 @@ the game ends."""
 from game.shared.point import Point
 from game.services.keyboard_service import KeyboardService
 from game.casting.score import Score
+from game.casting.coin import Coin
 import random
 import raylib
 
@@ -65,13 +66,19 @@ class Director():
         direction = self._keyboard_service
         
         
+        
         for coin in coins:
             coin.move_next(max_x, max_y)
             if direction.__eq__(coin.get_position()):
-                cast.remove_shape("coins", coin)
-                self._score = score.add_points()
-                banner.set_text(f"Score: {self._score}")
-                coin._position = Point(random.randint(1, max_x), 0)
+                if raylib.IsMouseButtonPressed(raylib.MOUSE_BUTTON_LEFT):
+                    cast.remove_shape("coins", coin)
+                    self._score = score.add_points()
+                    banner.set_text(f"Score: {self._score}")
+                    cast.add_shape("coins", coin)
+                    x = random.randint(1, max_x - 1)
+                    y = random.randint(1, max_y - 1)
+                    coin._position = Point(x, y)
+                    coin._velocity = Point(0, random.randint(3, 5))
 
 
     def _do_outputs(self, cast):
