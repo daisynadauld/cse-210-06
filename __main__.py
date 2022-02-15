@@ -1,6 +1,7 @@
-"""The main module starts the 'Treasure Hunt' game that
-allows you to catch coins that fall from
-the top of the screen. Main creates a list of coins for the game to manipulate."""
+"""The main module starts the 'Greed' game that
+allows you to catch gems or rocks that fall from
+the top of the screen. Main creates a list of gems
+and rocks for the game to manipulate."""
 
 import os
 import random
@@ -27,9 +28,9 @@ FONT_SIZE = 15
 ROBOT_FONT_SIZE = 20
 COLS = 60
 ROWS = 40
-CAPTION = "Greed"
+CAPTION = "Tresure Hunt"
 YELLOW = Color(255,233,0)
-DEFAULT_MINERAL = 40
+DEFAULT_COINS = 40
 
 def main():
     """Creates the characters of the game and starts
@@ -47,22 +48,24 @@ def main():
     cast.add_shape("banners", banner)
     
     # create the minerals
-    character = ""
-    x = random.randint(1, COLS - 1)
-    y = random.randint(1, ROWS - 1)
-    position = Point(x, y)
-    position = position.scale(CELL_SIZE)   
-    velocity = Point(0, random.randint(3, 5))
-    color = YELLOW
-    
-    coins = Coin()
-    coins.set_text(character)
-    coins.set_font_size(FONT_SIZE)
-    coins.set_color(color)
-    coins.set_position(position)
-    coins.set_velocity(velocity)
+    for n in range(DEFAULT_COINS):
+        text = "$"
 
-    cast.add_shape("coins", coins) 
+        x = random.randint(1, COLS - 1)
+        y = random.randint(1, ROWS - 1)
+        position = Point(x, y)
+        position = position.scale(CELL_SIZE)   
+        velocity = Point(0, random.randint(3, 5))
+        color = YELLOW
+    
+        coin = Coin()
+        coin.set_text(text)
+        coin.set_font_size(FONT_SIZE)
+        coin.set_color(color)
+        coin.set_position(position)
+        coin.set_velocity(velocity)
+        cast.add_shape("coins", coin) 
+
     # creats score
     score = Score()
 
