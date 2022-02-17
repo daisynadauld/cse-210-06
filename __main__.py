@@ -1,7 +1,5 @@
-"""The main module starts the 'Greed' game that
-allows you to catch gems or rocks that fall from
-the top of the screen. Main creates a list of gems
-and rocks for the game to manipulate."""
+"""The main module starts the 'Treasure Hunt' game that
+allows you to catch coins. Main creates a list of coins for the game to manipulate."""
 
 import os
 import random
